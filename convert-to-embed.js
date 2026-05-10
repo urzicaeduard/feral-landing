@@ -1,9 +1,11 @@
-// Converts index.html into a GHL/WP-compatible single-file embed.
-// - Strips <!DOCTYPE>, <html>, <head>, <body>
-// - Keeps <link> font tags + <script application/ld+json> schemas
-// - Keeps the <style> block
-// - Wraps the body content in <div class="fl-wrap"> for style scoping
-// - Rewrites relative frame paths to absolute Vercel CDN URLs
+// Converts index.html into a single-file embed for GoHighLevel / WordPress / Elementor / Webflow.
+// Strategy:
+//   - Hero canvas + frame sequence + scroll-driven animation (Vercel-only) is replaced
+//     with a <video> tag (page-builder-safe). Scripts that drove the canvas are stripped.
+//   - All asset URLs (frames poster, hero-video.mp4/webm) point to the STABLE Vercel domain,
+//     never a per-deploy URL.
+//   - Scripts are extracted from the body and placed AFTER the wrapper div, wrapped in
+//     a single outer IIFE so the embed cannot pollute the host page's global scope.
 
 const fs = require('fs');
 const path = require('path');
@@ -11,41 +13,99 @@ const path = require('path');
 const INPUT  = path.join(__dirname, 'index.html');
 const OUTPUT = path.join(__dirname, 'feral-embed.html');
 // Stable Vercel project URL — does NOT change between deploys.
-// (Per-deploy URLs like *-hgzhkqbeg-* break every time you push.)
 const CDN    = 'https://about-puma.vercel.app';
 
 let html = fs.readFileSync(INPUT, 'utf8');
 
-// 1. Pull all <link rel="stylesheet"> font tags from <head>
+// 1. Pull <link rel="stylesheet"> font tags
 const linkTags = [...html.matchAll(/<link\s+[^>]*rel=["']stylesheet["'][^>]*>/g)].map(m => m[0]);
 
-// 2. Pull JSON-LD schema blocks (helps SEO if the host page lets them through)
+// 2. Pull JSON-LD schema blocks
 const jsonLd = [...html.matchAll(/<script[^>]*application\/ld\+json[^>]*>[\s\S]*?<\/script>/g)].map(m => m[0]);
 
-// 3. Pull the <style>...</style> block (everything inside <head>)
+// 3. Pull <style>...</style> block
 const styleMatch = html.match(/<style>[\s\S]*?<\/style>/);
-const styleBlock = styleMatch ? styleMatch[0] : '';
+let styleBlock = styleMatch ? styleMatch[0] : '';
 
-// 4. Pull body content (between <body...> and </body>)
+// 4. Pull body content
 const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/);
-const bodyContent = bodyMatch ? bodyMatch[1] : '';
+let bodyContent = bodyMatch ? bodyMatch[1] : '';
 
-// 5. Rewrite the frame path generator inside the canvas script.
-//    Original: frame_${...}.jpg
-//    New: absolute Vercel CDN URL
-let bodyOut = bodyContent.replace(
-  /const framePath = \(i\) => `frames\/frame_\$\{String\(i \+ 1\)\.padStart\(4, '0'\)\}\.jpg`;/,
-  `const framePath = (i) => \`${CDN}/frames/frame_\${String(i + 1).padStart(4, '0')}.jpg\`;`
+// === HERO REWRITE: canvas frame sequence → <video> ===
+
+// 4a. Drop the data-loaded attribute (no canvas → no loaded state)
+bodyContent = bodyContent.replace(
+  /<section class="hero-3d" id="hero" data-loaded="false" aria-label="Hero">/,
+  '<section class="hero-3d" id="hero" aria-label="Hero">'
 );
 
-// 6. Strip the skip-link target (#main-content) and global SVG filter — keep them where they are,
-//    they work as inline elements in the wrapper.
+// 4b. Swap <canvas> for <video>
+const videoTag =
+`<video class="hero-3d__video" autoplay muted loop playsinline preload="metadata" poster="${CDN}/frames/frame_0001.jpg" aria-hidden="true">
+          <source src="${CDN}/hero-video.webm" type="video/webm">
+          <source src="${CDN}/hero-video.mp4" type="video/mp4">
+        </video>`;
+bodyContent = bodyContent.replace(
+  /<canvas id="hero-canvas" aria-hidden="true"><\/canvas>/,
+  videoTag
+);
 
-// 7. Compose final embed file. NO <!DOCTYPE>, NO <html>, NO <head>, NO <body>.
+// 4c. Strip the canvas IIFE — match the labelled comment block + entire IIFE
+const canvasIifeRegex =
+  /[ \t]*\/\/ ---------- Scroll-driven hero canvas ----------[\s\S]*?\}\)\(\);[ \t]*\n/;
+bodyContent = bodyContent.replace(
+  canvasIifeRegex,
+  '    // (canvas hero stripped — embed uses <video> for page-builder compatibility)\n'
+);
+
+// === CSS OVERRIDES — append to the style block ===
+const heroOverrides =
+`
+    /* === Embed-only overrides: video-based hero, no scroll-driven canvas === */
+    .hero-3d { min-height: 100vh; height: 100vh; }
+    @media (max-width: 900px) { .hero-3d { min-height: 100vh; height: 100vh; } }
+    @media (max-width: 600px) { .hero-3d { min-height: 100vh; height: 100vh; } }
+    .hero-3d__sticky { position: relative; top: auto; height: 100%; }
+    .hero-3d__video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: 1;
+      opacity: 1 !important;
+    }
+    .hero-3d__particles, .hero-3d__loader { display: none !important; }
+`;
+styleBlock = styleBlock.replace('</style>', heroOverrides + '  </style>');
+
+// === SCRIPT EXTRACTION: pull all <script> tags out of the body ===
+// Note: JSON-LD scripts are in <head>, not body, so body scripts are all vanilla JS.
+const scriptMatches = [...bodyContent.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+let allScripts = scriptMatches.map(m => m[1]).join('\n\n');
+bodyContent = bodyContent.replace(/<script>[\s\S]*?<\/script>/g, '');
+
+// Safety net: rewrite any leftover frame paths in JS (none expected, but defensive)
+allScripts = allScripts.replace(
+  /`frames\/frame_/g,
+  '`' + CDN + '/frames/frame_'
+);
+
+// Wrap all body JS in a single outer IIFE.
+// `root` is captured for any future code that wants to scope DOM queries to the wrapper.
+const wrappedScripts =
+`(function () {
+  const root = document.querySelector('.fl-wrap');
+  if (!root) return;
+
+${allScripts}
+})();`;
+
+// === COMPOSE FINAL OUTPUT ===
 const out = [
   '<!--',
-  '  FERAL — single-file embed for GoHighLevel / WordPress Custom HTML / Elementor HTML widget / etc.',
-  '  Hero frames are served from: ' + CDN + '/frames/',
+  '  FERAL — single-file embed for GoHighLevel / WordPress / Elementor / Webflow.',
+  '  Hero uses <video> (page-builder-safe). Sources:',
+  '    ' + CDN + '/hero-video.webm',
+  '    ' + CDN + '/hero-video.mp4',
+  '  Other assets (poster, etc.): ' + CDN + '/frames/',
   '  Generated by convert-to-embed.js — do not hand-edit; re-run after updating index.html.',
   '-->',
   '',
@@ -60,35 +120,44 @@ const out = [
   '',
   '<!-- 4. Page content wrapped for style scoping -->',
   '<div class="fl-wrap">',
-  bodyOut.trim(),
+  bodyContent.trim(),
   '</div>',
+  '',
+  '<!-- 5. JavaScript AFTER the wrapper, in a single IIFE -->',
+  '<script>',
+  wrappedScripts,
+  '</script>',
   ''
 ].join('\n');
 
 fs.writeFileSync(OUTPUT, out, 'utf8');
 
+// === VALIDATION ===
+const issues = [];
+if (out.includes('<!DOCTYPE'))                 issues.push('Contains <!DOCTYPE>');
+if (out.match(/<html\b/i))                     issues.push('Contains <html>');
+if (out.match(/<head\b/i))                     issues.push('Contains <head>');
+if (out.match(/<body\b/i))                     issues.push('Contains <body>');
+if (out.includes('type="module"'))             issues.push('Contains type="module"');
+if (out.includes('type="text/babel"'))         issues.push('Contains type="text/babel"');
+if (/^\s*import\s+/m.test(out))                issues.push('Contains import statement');
+if (/^\s*export\s+/m.test(out))                issues.push('Contains export statement');
+if (/<canvas[^>]*id=["']hero-canvas["']/i.test(out)) issues.push('Hero canvas still present (should be <video>)');
+if (!out.includes('hero-video.mp4'))           issues.push('Missing hero-video.mp4 source');
+if (!out.includes('hero-video.webm'))          issues.push('Missing hero-video.webm source');
+if (!out.includes('class="hero-3d__video"'))   issues.push('Missing video element class');
+if (out.includes('hgzhkqbeg'))                 issues.push('Per-deploy URL leaked (should be stable domain)');
+
 const sizeKB = (Buffer.byteLength(out, 'utf8') / 1024).toFixed(1);
 console.log(`✓ Wrote ${path.basename(OUTPUT)} — ${sizeKB} KB`);
-console.log(`  Links: ${linkTags.length}`);
-console.log(`  JSON-LD: ${jsonLd.length}`);
-console.log(`  Style block: ${styleBlock.length} bytes`);
-console.log(`  Body content: ${bodyContent.length} bytes`);
-
-// Validation checks
-const issues = [];
-if (out.includes('<!DOCTYPE')) issues.push('Contains <!DOCTYPE>');
-if (out.match(/<html\b/i)) issues.push('Contains <html>');
-if (out.match(/<head\b/i)) issues.push('Contains <head>');
-if (out.match(/<body\b/i)) issues.push('Contains <body>');
-if (out.includes('type="module"')) issues.push('Contains type="module"');
-if (out.includes('type="text/babel"')) issues.push('Contains type="text/babel"');
-if (out.match(/^\s*import\s+/m)) issues.push('Contains import statement');
-if (out.match(/^\s*export\s+/m)) issues.push('Contains export statement');
+console.log(`  Links: ${linkTags.length}, JSON-LD: ${jsonLd.length}`);
+console.log(`  Body scripts merged into outer IIFE: ${scriptMatches.length} → 1`);
+console.log(`  Hero: <video> with mp4+webm sources from ${CDN}`);
 
 if (issues.length === 0) {
-  console.log('✓ Validation passed: no <!DOCTYPE>/<html>/<head>/<body>, no modules, no imports.');
+  console.log('✓ Validation passed.');
 } else {
-  console.log('✗ Validation FAILED:');
+  console.log('✗ Validation issues:');
   issues.forEach(i => console.log('  - ' + i));
   process.exit(1);
 }
