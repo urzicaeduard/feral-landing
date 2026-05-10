@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FERAL — Performance sportswear built on instinct</title>
+  <meta name="description" content="FERAL designs performance sportswear for athletes who run first and ask later. Born from dust. Built for speed. Discover the brand, the people, the pace." />
+  <meta name="keywords" content="FERAL, sports brand, performance sportswear, running shoes, athletic apparel, sports company, performance gear" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="FERAL" />
+  <!-- TODO: replace https://feral.example with your real production domain before deploy -->
+  <link rel="canonical" href="https://feral.example/about" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Fonts: chunky display + clean body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800;900&display=swap" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FERAL" />
+  <meta property="og:title" content="FERAL — You hear the gun. We're already gone." />
+  <meta property="og:description" content="A sports company built on instinct. Born from dust. Built for speed. Designed for athletes who refuse to slow down." />
+  <meta property="og:url" content="https://feral.example/about" />
+  <meta property="og:image" content="https://feral.example/og.jpg" />
+  <meta property="og:image:alt" content="FERAL — performance sportswear, born from dust" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@feral" />
+  <meta name="twitter:title" content="FERAL — You hear the gun. We're already gone." />
+  <meta name="twitter:description" content="A sports company built on instinct. Born from dust. Built for speed." />
+  <meta name="twitter:image" content="https://feral.example/og.jpg" />
+  <meta name="twitter:image:alt" content="FERAL — performance sportswear, born from dust" />
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FERAL",
+    "alternateName": "FERAL Sports",
+    "url": "https://feral.example",
+    "logo": "https://feral.example/logo.svg",
+    "description": "FERAL is a sports company designing performance footwear, apparel and accessories for athletes who refuse to slow down.",
+    "foundingDate": "2026",
+    "slogan": "You hear the gun. We're already gone.",
+    "sameAs": [
+      "https://instagram.com/feral",
+      "https://youtube.com/@feral",
+      "https://linkedin.com/company/feral"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About FERAL",
+    "description": "The story of FERAL — a sports brand built on instinct.",
+    "url": "https://feral.example/about",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "FERAL",
+      "url": "https://feral.example"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://feral.example" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://feral.example/about" }
+    ]
+  }
+  </script>
+  <style>
+    /* ---------- Tokens ---------- */
+    :root {
+      --bg: #ffffff;
+      --ink: #0a0a0a;
+      --ink-soft: #4a4a4a;
+      --line: #e6e6e6;
+      --accent: #d9d97a;          /* warm yellow accent */
+      --accent-warm: #e8c46a;     /* sand */
+      --canyon: #b1411f;          /* canyon red */
+      --shadow: rgba(0,0,0,.08);
+
+      --container: 1440px;
+      --gutter: clamp(20px, 4vw, 64px);
+
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-display: "Bagel Fat One", "Bricolage Grotesque", "Inter", sans-serif;
+
+      --h1: clamp(3rem, 9vw, 8rem);
+      --h2: clamp(2.25rem, 5vw, 4.5rem);
+      --h3: clamp(1.5rem, 2.5vw, 2.25rem);
+      --body: clamp(1rem, 1.05vw, 1.125rem);
+      --small: 0.875rem;
+
+      --ease: cubic-bezier(.22,.61,.36,1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Smooth scroll lands sections below the sticky header */
+    [id] { scroll-margin-top: 78px; }
+
+    /* ---------- Reset ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: var(--body);
+      line-height: 1.55;
+    }
+    img, video, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; background: none; border: 0; color: inherit; padding: 0; }
+
+    /* ---------- Typography ---------- */
+    h1, h2, h3, h4 {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.02;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    /* Big display moments use Boldonse — chunky character */
+    .hero-3d__title,
+    .story__title,
+    .news__title,
+    .stats__title,
+    .tabs-section__title,
+    .teasers__title,
+    .highlight__title,
+    .manifesto__quote,
+    .parallax__heading,
+    .marquee__item,
+    .pillar__num {
+      font-family: var(--font-display);
+      letter-spacing: -0.01em;
+      font-weight: 400; /* Boldonse only ships at 400, the chunky look IS the font */
+    }
+    /* Boldonse uppercase + tight tracking + line-height 1 looks tightest */
+    .hero-3d__title,
+    .manifesto__quote,
+    .parallax__heading {
+      line-height: 0.95;
+    }
+    .text-h1 { font-size: var(--h2); }
+    .text-h2 { font-size: var(--h3); }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+    .container-narrow { max-width: 980px; margin: 0 auto; padding: 0 var(--gutter); }
+
+    /* ---------- Header ---------- */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 14px var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo {
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      font-size: 1.125rem;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo__mark {
+      width: 28px; height: 28px; display: inline-block;
+      background: var(--ink);
+      mask: radial-gradient(circle at 70% 30%, transparent 6px, #000 7px) no-repeat;
+      -webkit-mask: radial-gradient(circle at 70% 30%, transparent 6px, #000 7px) no-repeat;
+      border-radius: 6px;
+    }
+    /* Navigation */
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Sliding pill nav (cursor follows hover) */
+    .nav-pill {
+      position: relative;
+      display: flex;
+      width: fit-content;
+      list-style: none;
+      margin: 0;
+      padding: 4px;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 999px;
+    }
+    .nav-pill__item {
+      position: relative;
+      z-index: 2;
+    }
+    .nav-pill__item a {
+      display: block;
+      padding: 8px 18px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #000;
+      cursor: pointer;
+      transition: color .25s var(--ease);
+      white-space: nowrap;
+    }
+    .nav-pill__item--active a { color: #fff; }
+    .nav-pill__cursor {
+      position: absolute;
+      z-index: 1;
+      top: 4px;
+      left: 0;
+      height: calc(100% - 8px);
+      width: 0;
+      background: #000;
+      border-radius: 999px;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        left .32s cubic-bezier(.22,.61,.36,1),
+        width .32s cubic-bezier(.22,.61,.36,1),
+        opacity .18s var(--ease);
+    }
+    .nav__cta {
+      padding: 10px 18px;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: background .2s var(--ease), color .2s var(--ease);
+    }
+    .nav__cta:hover { background: var(--ink); color: var(--bg); }
+    .nav__burger { display: none; }
+
+    @media (max-width: 900px) {
+      .nav-pill { display: none; }
+      .nav__cta { display: none; }
+      .nav__burger {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+      }
+      .nav__burger span { width: 24px; height: 2px; background: var(--ink); transition: transform .2s var(--ease); }
+    }
+
+    /* ---------- Mobile drawer ---------- */
+    .drawer {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s var(--ease), visibility .3s var(--ease);
+    }
+    .drawer[data-open="true"] { opacity: 1; visibility: visible; }
+    .drawer__panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(380px, 88vw);
+      height: 100%;
+      background: #0a0a0a;
+      color: #fff;
+      padding: 28px 28px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transform: translateX(100%);
+      transition: transform .35s var(--ease);
+      overflow-y: auto;
+    }
+    .drawer[data-open="true"] .drawer__panel { transform: none; }
+    .drawer__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .drawer__close {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+    .drawer__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .drawer__list a {
+      display: block;
+      padding: 18px 0;
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      transition: color .2s var(--ease), padding-left .2s var(--ease);
+    }
+    .drawer__list a:hover { color: var(--accent-warm); padding-left: 8px; }
+    .drawer__footer {
+      margin-top: auto;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,.5);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ---------- Hero (scroll-driven 3D) ---------- */
+    .hero-3d {
+      position: relative;
+      min-height: 280vh;          /* tall scroll container — drives canvas frames */
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(217,217,122,.18), transparent 60%),
+        linear-gradient(180deg, #0a0a0a 0%, #1a0e08 60%, #2a160a 100%);
+      color: #fff;
+    }
+    @media (max-width: 900px) { .hero-3d { min-height: 220vh; } }
+    @media (max-width: 600px) { .hero-3d { min-height: 200vh; } }
+
+    .hero-3d__sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity .6s ease;
+    }
+    .hero-3d[data-loaded="true"] #hero-canvas { opacity: 1; }
+
+    /* Placeholder particles — visible until first frame loads */
+    .hero-3d__particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(2px 2px at 20% 30%, rgba(232,196,106,.6), transparent 60%),
+        radial-gradient(1.5px 1.5px at 80% 60%, rgba(232,196,106,.5), transparent 60%),
+        radial-gradient(2px 2px at 60% 80%, rgba(232,196,106,.4), transparent 60%),
+        radial-gradient(2px 2px at 35% 75%, rgba(217,217,122,.4), transparent 60%),
+        radial-gradient(1px 1px at 90% 20%, rgba(232,196,106,.6), transparent 60%);
+      filter: blur(.4px);
+      animation: drift 18s linear infinite;
+      transition: opacity .8s ease;
+    }
+    .hero-3d[data-loaded="true"] .hero-3d__particles { opacity: 0; }
+    @keyframes drift {
+      from { transform: translate3d(0,0,0); }
+      to { transform: translate3d(-40px, -20px, 0); }
+    }
+
+    /* Vignette/gradient on top of canvas to keep text legible */
+    .hero-3d__vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.32) 0%, transparent 22%, transparent 45%, rgba(0,0,0,.55) 78%, rgba(0,0,0,.78) 100%),
+        linear-gradient(90deg, transparent 0%, transparent 35%, transparent 50%, rgba(0,0,0,.55) 100%);
+    }
+
+    .hero-3d__overlay {
+      position: relative;
+      z-index: 3;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: clamp(60px, 10vh, 140px) var(--gutter) 80px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+    @media (min-width: 900px) {
+      .hero-3d__overlay {
+        align-items: flex-end;
+        text-align: right;
+      }
+      .hero-3d__lede { margin-left: auto; }
+      .hero-3d__title { max-width: 13ch; }
+    }
+
+    /* Loading bar — shows preload progress */
+    .hero-3d__loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba(255,255,255,.08);
+      z-index: 4;
+      overflow: hidden;
+      transition: opacity .6s ease;
+    }
+    .hero-3d__loader-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-warm), var(--canyon));
+      transition: width .15s linear;
+    }
+    .hero-3d[data-loaded="true"] .hero-3d__loader { opacity: 0; }
+    .hero-3d__crumbs {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 24px;
+    }
+    .hero-3d__title {
+      font-size: clamp(2.5rem, 6.5vw, 6rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      max-width: 14ch;
+      text-transform: uppercase;
+    }
+    .hero-3d__title span {
+      display: block;
+      color: var(--accent-warm);
+    }
+    .hero-3d__lede {
+      max-width: 48ch;
+      margin-top: 28px;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.55;
+      text-shadow:
+        0 2px 24px rgba(0,0,0,.55),
+        0 1px 4px rgba(0,0,0,.5);
+    }
+
+    /* ---------- Trust bar (avatars + count) ---------- */
+    .trust-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 6px 18px 6px 6px;
+      margin-top: 28px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      width: fit-content;
+    }
+    .trust-bar--light {
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      backdrop-filter: none;
+    }
+    .trust-bar__avatars {
+      display: flex;
+    }
+    .trust-bar__avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.02em;
+      margin-left: -8px;
+      overflow: hidden;
+      position: relative;
+      flex: 0 0 auto;
+      border: 2px solid #1a0e08;
+      transition: transform .25s var(--ease), z-index 0s .25s;
+    }
+    .trust-bar--light .trust-bar__avatar { border-color: #fff; }
+    .trust-bar__avatar:first-child { margin-left: 0; }
+    .trust-bar__avatar:hover { transform: translateY(-3px); z-index: 4; transition-delay: 0s; }
+    .trust-bar__avatar:nth-child(1) { background: #b1411f; z-index: 4; }
+    .trust-bar__avatar:nth-child(2) { background: #2c5530; z-index: 3; }
+    .trust-bar__avatar:nth-child(3) { background: #1a2a40; z-index: 2; }
+    .trust-bar__avatar:nth-child(4) { background: #4a3010; z-index: 1; }
+    .trust-bar__avatar img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .trust-bar__text {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.2;
+    }
+    .trust-bar--light .trust-bar__text { color: var(--ink-soft); }
+    .trust-bar__text strong {
+      color: #fff;
+      font-weight: 800;
+    }
+    .trust-bar--light .trust-bar__text strong { color: var(--ink); }
+
+    @media (max-width: 480px) {
+      .trust-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 8px 14px;
+        border-radius: 22px;
+      }
+      .trust-bar__text {
+        font-size: 0.78rem;
+        text-align: center;
+        flex: 1 0 100%;
+      }
+    }
+    @media (max-width: 380px) {
+      .hero-3d__title { font-size: clamp(2.25rem, 10vw, 8rem); }
+      .hero-3d__lede { font-size: 1rem; }
+    }
+
+    /* ---------- Warp animated gradient (vanilla port of Warp shader) ---------- */
+    .bg-warp {
+      position: relative;
+      isolation: isolate;
+    }
+    .bg-warp::before {
+      content: "";
+      position: absolute;
+      inset: -10%;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 18% 30%, hsla(20, 100%, 62%, 0.18) 0%, transparent 38%),
+        radial-gradient(circle at 78% 25%, hsla(45, 100%, 62%, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 22% 78%, hsla(0, 75%, 52%, 0.16) 0%, transparent 38%),
+        radial-gradient(circle at 82% 80%, hsla(50, 100%, 62%, 0.14) 0%, transparent 38%);
+      filter: blur(70px);
+      animation: warp-drift 32s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes warp-drift {
+      0%   { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+      33%  { transform: translate3d(-3%, 2%, 0) rotate(8deg) scale(1.08); }
+      66%  { transform: translate3d(2%, -1.5%, 0) rotate(-6deg) scale(1.04); }
+      100% { transform: translate3d(-1%, 3%, 0) rotate(4deg) scale(1.10); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bg-warp::before { animation: none; }
+    }
+    .hero-3d__scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-3d__scroll::after {
+      content: "";
+      width: 1px;
+      height: 38px;
+      background: linear-gradient(180deg, rgba(255,255,255,.5), transparent);
+      animation: drop 1.8s ease-in-out infinite;
+    }
+    @keyframes drop {
+      0%,100% { transform: scaleY(.4); transform-origin: top; }
+      50% { transform: scaleY(1); }
+    }
+
+    /* ---------- Story / Intro ---------- */
+    .story {
+      padding: clamp(80px, 12vh, 160px) 0;
+    }
+    .story__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .story__grid { grid-template-columns: 1.1fr 1fr; }
+    }
+    .story__media figure {
+      margin: 0;
+      aspect-ratio: 4/3;
+      background: #111;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .story__media video,
+    .story__media img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .story__title { font-size: var(--h2); margin-bottom: 28px; }
+    .story__text p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin: 0 0 16px;
+    }
+
+    /* ---------- Story founder line ---------- */
+    .story__founder {
+      margin-top: 28px !important;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      font-size: 0.95rem !important;
+      color: var(--ink) !important;
+      max-width: 56ch;
+    }
+
+    /* ---------- Manifesto pull-quote (with gooey pixel trail) ---------- */
+    .manifesto {
+      position: relative;
+      padding: clamp(80px, 14vh, 180px) 0;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(177,65,31,.18), transparent 65%),
+        linear-gradient(180deg, #0a0a0a 0%, #14080a 100%);
+      color: #fff;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .manifesto__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      text-align: center;
+      pointer-events: none;
+    }
+    .manifesto__quote {
+      font-size: clamp(2.25rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin: 0;
+      color: #fff;
+      mix-blend-mode: difference;
+    }
+    .manifesto__quote em {
+      font-style: normal;
+      color: var(--accent-warm);
+    }
+    .manifesto__attr {
+      margin-top: 28px;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+
+    /* ---------- Pixel trail + gooey filter ---------- */
+    .pixel-trail {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: auto;
+      filter: url(#feral-goo);
+      display: block;
+      contain: strict;
+    }
+    .pixel-trail__row { display: flex; }
+    .pixel {
+      flex: 0 0 auto;
+      background: var(--accent-warm);
+      opacity: 0;
+      will-change: opacity;
+    }
+    .pixel--lit {
+      animation: pixel-fade 900ms ease-out forwards;
+    }
+    @keyframes pixel-fade {
+      0%   { opacity: 1; }
+      40%  { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* Hint to use cursor on the section */
+    .manifesto::after {
+      content: "Move the mouse";
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      pointer-events: none;
+    }
+    @media (hover: none) {
+      .manifesto::after { content: "Tap and drag"; }
+    }
+
+    /* ---------- Highlight banner ---------- */
+    .highlight {
+      background: var(--accent);
+      color: var(--ink);
+      padding: clamp(60px, 10vh, 100px) 0;
+    }
+    .highlight__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    @media (min-width: 900px) {
+      .highlight__grid { grid-template-columns: 1fr 1fr; align-items: center; }
+    }
+    .highlight__title { font-size: var(--h3); }
+    .highlight__body { font-size: 1.05rem; line-height: 1.6; }
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--ink);
+      color: var(--bg);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      transition: transform .2s var(--ease), background .2s var(--ease);
+      margin-top: 18px;
+    }
+    .button:hover { transform: translateY(-2px); background: #222; }
+
+    /* ---------- News block ---------- */
+    .news { padding: clamp(80px, 12vh, 140px) 0; }
+    .news__title { font-size: var(--h2); margin-bottom: 48px; }
+    .news-card {
+      display: block;
+      border-top: 1px solid var(--line);
+      padding: 32px 0;
+      transition: padding .3s var(--ease);
+    }
+    .news-card:hover { padding-left: 12px; }
+    .news-card:last-child { border-bottom: 1px solid var(--line); }
+    .news-card__meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 14px;
+    }
+    .news-card__title {
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      font-weight: 800;
+      max-width: 60ch;
+    }
+
+    /* ---------- Stats / Facts ---------- */
+    .stats {
+      padding: clamp(60px, 10vh, 120px) 0;
+      background: #f7f7f5;
+    }
+    .stats__title { font-size: var(--h2); margin-bottom: 48px; }
+    .stats__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+    }
+    .fact {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 24px 0;
+      border-top: 2px solid var(--ink);
+    }
+    .fact__value {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+    }
+    .fact__text {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+    .fact__meta {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    /* ---------- Tabs section ---------- */
+    .tabs-section { padding: clamp(80px, 12vh, 140px) 0; }
+    .tabs-section__title { font-size: var(--h2); margin-bottom: 36px; }
+    .tabs {
+      display: flex;
+      gap: 4px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 48px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tabs__trigger {
+      padding: 14px 24px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color .2s var(--ease), border-color .2s var(--ease);
+    }
+    .tabs__trigger[aria-selected="true"] {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+    .tabs-panel { display: none; }
+    .tabs-panel[data-active="true"] { display: block; }
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+    .pillar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .pillar__media {
+      aspect-ratio: 1/1;
+      background-color: #eee;
+      background-size: cover;
+      background-position: center;
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform .5s var(--ease), filter .5s var(--ease);
+      filter: brightness(0.95) saturate(0.9);
+    }
+    .pillar:hover .pillar__media {
+      transform: scale(1.02);
+      filter: brightness(1) saturate(1);
+    }
+    .pillar__num {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--canyon);
+      line-height: 0.9;
+      margin-bottom: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+    .pillar__name { font-size: clamp(1.25rem, 2vw, 1.625rem); font-weight: 800; margin: 0; line-height: 1.1; }
+    .pillar__role { font-size: 0.98rem; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+
+    /* ---------- Parallax showcase (3 sticky blocks) ---------- */
+    .parallax-showcase {
+      padding: 12px;
+      background: var(--bg);
+    }
+    .parallax-block {
+      position: relative;
+      height: 150vh;
+      margin-bottom: 12px;
+    }
+    .parallax-block:last-child { margin-bottom: 0; }
+    .parallax__sticky {
+      position: sticky;
+      top: 12px;
+      height: calc(100vh - 24px);
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      overflow: hidden;
+      will-change: transform;
+      z-index: 0;
+    }
+    .parallax__dark {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,10,10,.7);
+      will-change: opacity;
+      pointer-events: none;
+    }
+    .parallax__overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      pointer-events: none;
+      will-change: transform, opacity;
+      z-index: 2;
+      padding: 0 var(--gutter);
+    }
+    .parallax__sub {
+      font-size: clamp(0.95rem, 1.4vw, 1.5rem);
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      margin: 0 0 18px;
+      text-align: center;
+      color: var(--accent-warm);
+      font-weight: 700;
+    }
+    .parallax__heading {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      margin: 0;
+      text-align: center;
+      line-height: 0.95;
+      max-width: 16ch;
+    }
+    @media (max-width: 768px) {
+      .parallax-block { height: 120vh; }
+    }
+
+    /* ---------- Teaser grid (GlowCard spotlight) ---------- */
+    .teasers { padding: clamp(80px, 12vh, 140px) 0; background: var(--ink); color: #fff; }
+    .teasers__title { font-size: var(--h2); margin-bottom: 56px; color: #fff; }
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .teaser {
+      --glow-base: 22;
+      --glow-spread: 36;
+      --glow-hue: calc(var(--glow-base) + var(--xp, 0) * var(--glow-spread));
+      --glow-size: 240px;
+      --glow-border: 2px;
+      --glow-radius: 16px;
+
+      position: relative;
+      display: block;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      border-radius: var(--glow-radius);
+      border: var(--glow-border) solid rgba(255,255,255,.06);
+      background:
+        radial-gradient(
+          calc(var(--glow-size) * 1.2) calc(var(--glow-size) * 1.2) at
+          calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+          hsl(var(--glow-hue) 100% 70% / 0.10), transparent 70%
+        ),
+        rgba(20, 14, 12, 0.85);
+      background-attachment: fixed, scroll;
+      backdrop-filter: blur(4px);
+      transition: transform .4s var(--ease);
+    }
+    .teaser:hover { transform: translateY(-4px); }
+
+    /* Outer glowing border — masked to border ring only */
+    .teaser::before,
+    .teaser::after {
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      inset: calc(var(--glow-border) * -1);
+      border: var(--glow-border) solid transparent;
+      border-radius: inherit;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: calc(100% + (2 * var(--glow-border))) calc(100% + (2 * var(--glow-border)));
+      -webkit-mask:
+        linear-gradient(transparent, transparent) padding-box,
+        linear-gradient(#fff, #fff) border-box;
+      mask:
+        linear-gradient(transparent, transparent) padding-box,
+        linear-gradient(#fff, #fff) border-box;
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: 3;
+    }
+    .teaser::before {
+      background-image: radial-gradient(
+        calc(var(--glow-size) * 0.75) calc(var(--glow-size) * 0.75) at
+        calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+        hsl(var(--glow-hue) 100% 50% / 0.95), transparent 100%
+      );
+      filter: brightness(1.6);
+    }
+    .teaser::after {
+      background-image: radial-gradient(
+        calc(var(--glow-size) * 0.5) calc(var(--glow-size) * 0.5) at
+        calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+        rgba(255,255,255,0.95), transparent 100%
+      );
+    }
+
+    /* Image layer + color tint per card (image set via inline style on .teaser__img) */
+    .teaser__img {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.55) contrast(1.05) saturate(0.95);
+      transition: filter .5s var(--ease), transform .8s var(--ease);
+      transform: scale(1.02);
+    }
+    .teaser:hover .teaser__img {
+      filter: brightness(0.7) contrast(1.05) saturate(1);
+      transform: scale(1.06);
+    }
+    .teaser__texture {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, transparent 35%, rgba(0,0,0,.88) 100%),
+        radial-gradient(circle at 30% 20%, rgba(232,196,106,.10), transparent 50%);
+    }
+    .teaser:nth-child(2) .teaser__texture {
+      background:
+        linear-gradient(180deg, transparent 35%, rgba(0,0,0,.88) 100%),
+        radial-gradient(circle at 70% 80%, rgba(70,90,50,.10), transparent 50%);
+    }
+    .teaser:nth-child(3) .teaser__texture {
+      background:
+        linear-gradient(180deg, transparent 35%, rgba(0,0,0,.88) 100%),
+        radial-gradient(circle at 30% 80%, rgba(40,60,90,.12), transparent 50%);
+    }
+    .teaser:nth-child(4) .teaser__texture {
+      background:
+        linear-gradient(180deg, transparent 35%, rgba(0,0,0,.88) 100%),
+        radial-gradient(circle at 70% 20%, rgba(90,60,30,.12), transparent 50%);
+    }
+
+    .teaser__content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .teaser__title {
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+    }
+    .teaser__text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,.75);
+      margin: 0;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      background: #050505;
+      color: rgba(255,255,255,.7);
+      padding: 80px 0 32px;
+      font-size: 0.95rem;
+    }
+    .footer__top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    @media (min-width: 900px) {
+      .footer__top { grid-template-columns: 2fr repeat(3, 1fr); }
+    }
+    .footer__brand .logo { color: #fff; font-size: 1.25rem; }
+    .footer__brand p { margin-top: 16px; max-width: 36ch; }
+    .footer-menu__title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fff;
+      margin: 0 0 18px;
+      font-weight: 800;
+    }
+    .footer-menu ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .footer-menu a { transition: color .2s var(--ease); }
+    .footer-menu a:hover { color: #fff; }
+    .footer__bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      padding-top: 32px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,.5);
+    }
+    .footer__legal { display: flex; gap: 24px; flex-wrap: wrap; }
+
+    /* ---------- Marquee tagline ---------- */
+    .marquee {
+      background: var(--ink);
+      color: #fff;
+      padding: 28px 0;
+      overflow: hidden;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .marquee__track {
+      display: flex;
+      gap: 48px;
+      width: max-content;
+      animation: scroll-x 40s linear infinite;
+      will-change: transform;
+    }
+    .marquee:hover .marquee__track { animation-play-state: paused; }
+    .marquee__item {
+      display: inline-flex;
+      align-items: center;
+      gap: 48px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .marquee__item::after {
+      content: "✦";
+      color: var(--accent-warm);
+      font-size: 0.6em;
+    }
+    @keyframes scroll-x {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ---------- Animations ---------- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* Selection */
+    ::selection { background: var(--accent); color: var(--ink); }
+
+    /* ---------- Skip link ---------- */
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      transform: translateY(-200%);
+      background: #fff;
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      z-index: 999;
+      transition: transform .2s var(--ease);
+    }
+    .skip-link:focus { transform: none; outline: 2px solid var(--accent); }
+
+    /* Visible focus on all interactive elements */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent-warm);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Global SVG filters (gooey blob filter for pixel trail) -->
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+    <defs>
+      <filter id="feral-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+        <feColorMatrix in="blur" type="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- =================== HEADER =================== -->
+  <header class="header" role="banner">
+    <div class="header__inner">
+      <a href="#hero" class="logo" aria-label="Home">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span>FERAL</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <ul class="nav-pill" id="nav-pill">
+          <li class="nav-pill__item"><a href="#story">Story</a></li>
+          <li class="nav-pill__item"><a href="#parallax-showcase">Sport</a></li>
+          <li class="nav-pill__item"><a href="#stats">Numbers</a></li>
+          <li class="nav-pill__item"><a href="#pillars">Pillars</a></li>
+          <li class="nav-pill__item"><a href="#teasers">Explore</a></li>
+          <li class="nav-pill__cursor" id="nav-pill-cursor" aria-hidden="true"></li>
+        </ul>
+        <a class="nav__cta" href="#">EN</a>
+        <button class="nav__burger" aria-label="Open menu" aria-controls="mobile-drawer" aria-expanded="false"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =================== MOBILE DRAWER =================== -->
+  <div class="drawer" id="mobile-drawer" data-open="false" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="drawer__panel">
+      <div class="drawer__top">
+        <span class="logo"><span class="logo__mark" aria-hidden="true"></span><span>FERAL</span></span>
+        <button class="drawer__close" aria-label="Close menu">&times;</button>
+      </div>
+      <ul class="drawer__list">
+        <li><a href="#story">This is Us</a></li>
+        <li><a href="#highlight">Newsroom</a></li>
+        <li><a href="#stats">Investors</a></li>
+        <li><a href="#pillars">Sustainability</a></li>
+        <li><a href="#teasers">Careers</a></li>
+      </ul>
+      <div class="drawer__footer">EN · Run wild ✦</div>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- =================== HERO 3D (scroll-driven canvas) =================== -->
+    <section class="hero-3d" id="hero" data-loaded="false" aria-label="Hero">
+      <div class="hero-3d__sticky">
+        <div class="hero-3d__particles" aria-hidden="true"></div>
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-3d__vignette" aria-hidden="true"></div>
+
+        <div class="hero-3d__loader" aria-hidden="true">
+          <div class="hero-3d__loader-bar"></div>
+        </div>
+
+        <div class="hero-3d__overlay">
+          <div class="hero-3d__crumbs">FERAL · Est. 2026 · About</div>
+          <h1 class="hero-3d__title">
+            You hear the gun.
+            <span>We're already gone.</span>
+          </h1>
+          <p class="hero-3d__lede">
+            A sports company built on instinct. We design for the half-second before everyone else moves — for the runners, the strikers, the chasers who never wait for permission.
+          </p>
+          <div class="trust-bar reveal" aria-label="Trust signal">
+            <div class="trust-bar__avatars" aria-hidden="true">
+              <span class="trust-bar__avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&h=120&fit=crop&crop=faces" alt="" loading="lazy" />KS</span>
+              <span class="trust-bar__avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&h=120&fit=crop&crop=faces" alt="" loading="lazy" />MA</span>
+              <span class="trust-bar__avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=120&h=120&fit=crop&crop=faces" alt="" loading="lazy" />JT</span>
+              <span class="trust-bar__avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=120&h=120&fit=crop&crop=faces" alt="" loading="lazy" />RV</span>
+            </div>
+            <p class="trust-bar__text">Trusted by <strong>200K+</strong> runners in the pack.</p>
+          </div>
+        </div>
+
+        <div class="hero-3d__scroll">Run with us</div>
+      </div>
+    </section>
+
+    <!-- =================== MARQUEE TAGLINE STRIP =================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item">Run wild</span>
+        <span class="marquee__item">First step wins</span>
+        <span class="marquee__item">Born from dust</span>
+        <span class="marquee__item">The pack runs first</span>
+        <!-- duplicate for seamless loop -->
+        <span class="marquee__item">Run wild</span>
+        <span class="marquee__item">First step wins</span>
+        <span class="marquee__item">Born from dust</span>
+        <span class="marquee__item">The pack runs first</span>
+      </div>
+    </div>
+
+    <!-- =================== STORY =================== -->
+    <section class="story bg-warp" id="story">
+      <div class="container">
+        <div class="story__grid">
+          <div class="story__media reveal">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1517438476312-10d79c077509?q=80&w=1800&auto=format&fit=crop" alt="An athlete running on a track at golden hour" loading="lazy" />
+            </figure>
+          </div>
+          <div class="story__text reveal">
+            <h2 class="story__title">This is the pack.</h2>
+            <p>FERAL was founded on one belief: speed isn't a feature, it's a philosophy. Every shoe, every kit, every fiber we engineer answers to a single question — <em>does it make the next step faster than the last?</em></p>
+            <p>From the track to the street, our products live at the seam where sport meets culture. Worn by athletes who set the record and the kids who'll break it next.</p>
+            <p>Headquartered in Berlin, distributed in 120+ markets, partnered with athletes who refuse to slow down. The pack runs together. The pack runs first.</p>
+            <p class="story__founder">— Founded in 2026 by an obsessed runner and an engineer who kept losing to her. We're still chasing each other.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== MANIFESTO PULL-QUOTE =================== -->
+    <section class="manifesto" id="manifesto" aria-label="Manifesto">
+      <div class="pixel-trail" id="pixel-trail" aria-hidden="true"></div>
+      <div class="manifesto__inner">
+        <p class="manifesto__quote reveal">
+          Instinct is older <em>than effort.</em><br/>We engineer for instinct.
+        </p>
+        <p class="manifesto__attr reveal">— FERAL, since meter zero</p>
+      </div>
+    </section>
+
+    <!-- =================== HIGHLIGHT BANNER =================== -->
+    <section class="highlight" id="highlight">
+      <div class="container">
+        <div class="highlight__grid">
+          <h2 class="highlight__title reveal">The Year We Ran Faster.</h2>
+          <div class="reveal">
+            <p class="highlight__body">
+              Annual Report 2025 — three new platforms, two records broken, one promise kept: every step we take is faster than the one before. Inside, the year on the record, in our own voice.
+            </p>
+            <a class="button" href="#">Read the report</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== NEWS =================== -->
+    <section class="news bg-warp" id="news">
+      <div class="container">
+        <h2 class="news__title reveal">Latest from the pack.</h2>
+        <a class="news-card reveal" href="#">
+          <div class="news-card__meta">
+            <time datetime="2026-05-10">10 May 2026</time>
+            <span>Innovation</span>
+          </div>
+          <h3 class="news-card__title">X1 launches: our first running plate cast from a single piece of recycled carbon.</h3>
+        </a>
+        <a class="news-card reveal" href="#">
+          <div class="news-card__meta">
+            <time datetime="2026-05-02">02 May 2026</time>
+            <span>Sustainability</span>
+          </div>
+          <h3 class="news-card__title">Circular by 2028: FERAL hits 62% recycled materials across the footwear line — two years ahead of schedule.</h3>
+        </a>
+        <a class="news-card reveal" href="#">
+          <div class="news-card__meta">
+            <time datetime="2026-04-21">21 Apr 2026</time>
+            <span>Athletes</span>
+          </div>
+          <h3 class="news-card__title">Five world records, one race kit. Spring track season delivers FERAL's strongest showing yet.</h3>
+        </a>
+      </div>
+    </section>
+
+    <!-- =================== STATS =================== -->
+    <section class="stats" id="stats">
+      <div class="container">
+        <h2 class="stats__title reveal">How we're measured.</h2>
+        <div class="stats__grid">
+          <div class="fact reveal">
+            <div class="fact__value"><span class="js-countup" data-target="48.62" data-decimals="2">0</span></div>
+            <p class="fact__text">Share Price (EUR)</p>
+            <p class="fact__meta">As of today</p>
+          </div>
+          <div class="fact reveal">
+            <div class="fact__value">€<span class="js-countup" data-target="7296" data-decimals="0">0</span>m</div>
+            <p class="fact__text">Annual Sales</p>
+            <p class="fact__meta">2025</p>
+          </div>
+          <div class="fact reveal">
+            <div class="fact__value"><span class="js-countup" data-target="21194" data-decimals="0">0</span></div>
+            <p class="fact__text">Employees worldwide</p>
+            <p class="fact__meta">2025</p>
+          </div>
+          <div class="fact reveal">
+            <div class="fact__value"><span class="js-countup" data-target="120" data-decimals="0">0</span>+</div>
+            <p class="fact__text">Countries</p>
+            <p class="fact__meta">Global reach</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== TABS / PILLARS =================== -->
+    <section class="tabs-section bg-warp" id="pillars">
+      <div class="container">
+        <h2 class="tabs-section__title reveal">Three reasons we run.</h2>
+        <div class="tabs" role="tablist" aria-label="Brand pillars">
+          <button class="tabs__trigger" role="tab" aria-selected="true" aria-controls="panel-perf" id="tab-perf">Performance</button>
+          <button class="tabs__trigger" role="tab" aria-selected="false" aria-controls="panel-sust" id="tab-sust">Sustainability</button>
+          <button class="tabs__trigger" role="tab" aria-selected="false" aria-controls="panel-cult" id="tab-cult">Culture</button>
+        </div>
+
+        <div class="tabs-panel" id="panel-perf" role="tabpanel" aria-labelledby="tab-perf" data-active="true">
+          <div class="pillar-grid">
+            <article class="pillar reveal">
+              <div class="pillar__num">01</div>
+              <h3 class="pillar__name">Instinct over instruction.</h3>
+              <p class="pillar__role">We design for the body that already knows. The shoe never slows the answer — it gets out of the way.</p>
+            </article>
+            <article class="pillar reveal">
+              <div class="pillar__num">02</div>
+              <h3 class="pillar__name">First step, every step.</h3>
+              <p class="pillar__role">Every product earns its place at meter zero. The race is decided before the body knows it started.</p>
+            </article>
+            <article class="pillar reveal">
+              <div class="pillar__num">03</div>
+              <h3 class="pillar__name">The pack runs first.</h3>
+              <p class="pillar__role">Tools for athletes who don't wait for permission. Pack mentality. Predator pace. No second place.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="tabs-panel" id="panel-sust" role="tabpanel" aria-labelledby="tab-sust">
+          <div class="pillar-grid">
+            <article class="pillar reveal">
+              <div class="pillar__media" style="background-image:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop')"></div>
+              <h3 class="pillar__name">Forever Better</h3>
+              <p class="pillar__role">Our roadmap to circular materials by 2030.</p>
+            </article>
+            <article class="pillar reveal">
+              <div class="pillar__media" style="background-image:url('https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=1200&auto=format&fit=crop')"></div>
+              <h3 class="pillar__name">Climate</h3>
+              <p class="pillar__role">Cutting absolute emissions across our supply chain.</p>
+            </article>
+            <article class="pillar reveal">
+              <div class="pillar__media" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop')"></div>
+              <h3 class="pillar__name">People</h3>
+              <p class="pillar__role">Fair wages and safe workplaces for every partner.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="tabs-panel" id="panel-cult" role="tabpanel" aria-labelledby="tab-cult">
+          <div class="pillar-grid">
+            <article class="pillar reveal">
+              <div class="pillar__media" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop')"></div>
+              <h3 class="pillar__name">Music</h3>
+              <p class="pillar__role">Sound is sport. Our collabs prove it.</p>
+            </article>
+            <article class="pillar reveal">
+              <div class="pillar__media" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop')"></div>
+              <h3 class="pillar__name">Streetwear</h3>
+              <p class="pillar__role">Where the field meets the sidewalk.</p>
+            </article>
+            <article class="pillar reveal">
+              <div class="pillar__media" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop')"></div>
+              <h3 class="pillar__name">Community</h3>
+              <p class="pillar__role">Run clubs, ride crews, and pickup leagues — everywhere.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== PARALLAX SHOWCASE =================== -->
+    <section class="parallax-showcase" id="parallax-showcase" aria-label="Where we run">
+      <div class="parallax-block">
+        <div class="parallax__sticky" style="background-image:url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=2400&auto=format&fit=crop')">
+          <div class="parallax__dark" aria-hidden="true"></div>
+        </div>
+        <div class="parallax__overlay">
+          <p class="parallax__sub">Track</p>
+          <p class="parallax__heading">Where we begin.</p>
+        </div>
+      </div>
+      <div class="parallax-block">
+        <div class="parallax__sticky" style="background-image:url('https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=2400&auto=format&fit=crop')">
+          <div class="parallax__dark" aria-hidden="true"></div>
+        </div>
+        <div class="parallax__overlay">
+          <p class="parallax__sub">Trail</p>
+          <p class="parallax__heading">Test the limit.</p>
+        </div>
+      </div>
+      <div class="parallax-block">
+        <div class="parallax__sticky" style="background-image:url('https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2400&auto=format&fit=crop')">
+          <div class="parallax__dark" aria-hidden="true"></div>
+        </div>
+        <div class="parallax__overlay">
+          <p class="parallax__sub">Street</p>
+          <p class="parallax__heading">First step wins.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== TEASERS =================== -->
+    <section class="teasers" id="teasers">
+      <div class="container">
+        <h2 class="teasers__title reveal">Go deeper.</h2>
+        <div class="teaser-grid">
+          <a class="teaser reveal" href="#" aria-label="Athletes">
+            <div class="teaser__img" style="background-image:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1200&auto=format&fit=crop')" aria-hidden="true"></div>
+            <div class="teaser__texture" aria-hidden="true"></div>
+            <div class="teaser__content">
+              <h3 class="teaser__title">Athletes</h3>
+              <p class="teaser__text">The roster that sets the pace — and breaks it.</p>
+            </div>
+          </a>
+          <a class="teaser reveal" href="#" aria-label="The Lab">
+            <div class="teaser__img" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop')" aria-hidden="true"></div>
+            <div class="teaser__texture" aria-hidden="true"></div>
+            <div class="teaser__content">
+              <h3 class="teaser__title">The Lab</h3>
+              <p class="teaser__text">Where the next world record is being engineered right now.</p>
+            </div>
+          </a>
+          <a class="teaser reveal" href="#" aria-label="Heritage">
+            <div class="teaser__img" style="background-image:url('https://images.unsplash.com/photo-1565538810643-b5bdb714032a?q=80&w=1200&auto=format&fit=crop')" aria-hidden="true"></div>
+            <div class="teaser__texture" aria-hidden="true"></div>
+            <div class="teaser__content">
+              <h3 class="teaser__title">Heritage</h3>
+              <p class="teaser__text">Every silhouette has a story. The archive runs deep.</p>
+            </div>
+          </a>
+          <a class="teaser reveal" href="#" aria-label="Careers">
+            <div class="teaser__img" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop')" aria-hidden="true"></div>
+            <div class="teaser__texture" aria-hidden="true"></div>
+            <div class="teaser__content">
+              <h3 class="teaser__title">Careers</h3>
+              <p class="teaser__text">If you can't sit still, you'll fit right in.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================== FOOTER =================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#" class="logo">
+            <span class="logo__mark" aria-hidden="true"></span>
+            <span>FERAL</span>
+          </a>
+          <p>FERAL. A sports company built on instinct. Designed in Berlin. Tested by athletes who don't slow down.</p>
+        </div>
+        <div class="footer-menu">
+          <h3 class="footer-menu__title">Company</h3>
+          <ul>
+            <li><a href="#story">About</a></li>
+            <li><a href="#stats">Investors</a></li>
+            <li><a href="#pillars">Sustainability</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-menu">
+          <h3 class="footer-menu__title">Discover</h3>
+          <ul>
+            <li><a href="#teasers">Athletes</a></li>
+            <li><a href="#teasers">Heritage</a></li>
+            <li><a href="#teasers">Innovation</a></li>
+            <li><a href="#teasers">Culture</a></li>
+          </ul>
+        </div>
+        <div class="footer-menu">
+          <h3 class="footer-menu__title">Connect</h3>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Newsletter</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 FERAL. All rights reserved.</span>
+        <div class="footer__legal">
+          <a href="#">Imprint</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasIO = 'IntersectionObserver' in window;
+
+    // ---------- Tabs (with full ARIA + tabindex sync + keyboard nav) ----------
+    const tabs = Array.from(document.querySelectorAll('.tabs__trigger'));
+    const panels = Array.from(document.querySelectorAll('.tabs-panel'));
+    const activateTab = (tab) => {
+      tabs.forEach(t => {
+        t.setAttribute('aria-selected', 'false');
+        t.tabIndex = -1;
+      });
+      panels.forEach(p => p.removeAttribute('data-active'));
+      tab.setAttribute('aria-selected', 'true');
+      tab.tabIndex = 0;
+      const panel = document.getElementById(tab.getAttribute('aria-controls'));
+      if (panel) panel.setAttribute('data-active', 'true');
+    };
+    tabs.forEach((tab, i) => {
+      tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', (e) => {
+        let next;
+        if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+        else if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === 'Home') next = tabs[0];
+        else if (e.key === 'End') next = tabs[tabs.length - 1];
+        if (next) { e.preventDefault(); activateTab(next); next.focus(); }
+      });
+    });
+
+    // ---------- Reveal on scroll (with IO fallback) ----------
+    const reveals = document.querySelectorAll('.reveal');
+    if (!hasIO || reduceMotion) {
+      reveals.forEach(el => el.classList.add('is-visible'));
+    } else {
+      const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            revealObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      reveals.forEach(el => revealObs.observe(el));
+    }
+
+    // ---------- Count-up (with IO + reduce-motion fallback) ----------
+    const countEls = document.querySelectorAll('.js-countup');
+    const formatNum = (n, decimals) => Number(n).toLocaleString('en-US', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals
+    });
+    const setFinal = (el) => {
+      const target = parseFloat(el.dataset.target);
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      el.textContent = formatNum(target, decimals);
+    };
+    if (!hasIO || reduceMotion) {
+      countEls.forEach(setFinal);
+    } else {
+      const countObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          const target = parseFloat(el.dataset.target);
+          const decimals = parseInt(el.dataset.decimals || '0', 10);
+          const duration = 1600;
+          const start = performance.now();
+          const tick = (now) => {
+            const t = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - t, 3);
+            el.textContent = formatNum(target * eased, decimals);
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          countObs.unobserve(el);
+        });
+      }, { threshold: 0.4 });
+      countEls.forEach(el => countObs.observe(el));
+    }
+
+    // ---------- Scroll-driven hero canvas ----------
+    (() => {
+      const heroEl = document.getElementById('hero');
+      const canvas = document.getElementById('hero-canvas');
+      const loaderBar = document.querySelector('.hero-3d__loader-bar');
+      if (!heroEl || !canvas) return;
+
+      const ctx = canvas.getContext('2d', { alpha: false });
+      const FRAME_COUNT = 120;
+      const framePath = (i) => `frames/frame_${String(i + 1).padStart(4, '0')}.jpg`;
+      const frames = new Array(FRAME_COUNT);
+      let loaded = 0;
+      let currentDrawn = -1;
+      let nextIndex = 0;
+      let raf = null;
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const sizeCanvas = () => {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = Math.round(rect.width * dpr);
+        canvas.height = Math.round(rect.height * dpr);
+      };
+
+      const drawFrame = (i) => {
+        const img = frames[i];
+        if (!img || !img.complete || !img.naturalWidth) return;
+        const cw = canvas.width, ch = canvas.height;
+        const iw = img.naturalWidth, ih = img.naturalHeight;
+        // cover-fit
+        const scale = Math.max(cw / iw, ch / ih);
+        const w = iw * scale, h = ih * scale;
+        // On desktop bias subject to the LEFT so the right side stays clean for the text overlay.
+        // xBias: 0 = subject right, 0.5 = centered, 1 = subject far-left
+        const isDesktop = window.matchMedia('(min-width: 900px)').matches;
+        const xBias = isDesktop ? 0.88 : 0.5;
+        const x = (cw - w) * xBias;
+        const y = (ch - h) / 2;
+        ctx.fillStyle = '#0a0a0a';
+        ctx.fillRect(0, 0, cw, ch);
+        ctx.drawImage(img, x, y, w, h);
+        currentDrawn = i;
+      };
+
+      const render = () => {
+        raf = null;
+        if (currentDrawn !== nextIndex) drawFrame(nextIndex);
+      };
+
+      const computeFrameFromScroll = () => {
+        const rect = heroEl.getBoundingClientRect();
+        const scrollable = heroEl.offsetHeight - window.innerHeight;
+        if (scrollable <= 0) return 0;
+        const progress = Math.max(0, Math.min(1, -rect.top / scrollable));
+        return Math.min(FRAME_COUNT - 1, Math.round(progress * (FRAME_COUNT - 1)));
+      };
+
+      const onScroll = () => {
+        nextIndex = computeFrameFromScroll();
+        if (raf === null) raf = requestAnimationFrame(render);
+      };
+
+      const onResize = () => {
+        sizeCanvas();
+        drawFrame(currentDrawn >= 0 ? currentDrawn : 0);
+      };
+
+      sizeCanvas();
+
+      // Preload all frames — show canvas as soon as the FIRST useful frame paints
+      const tryFirstPaint = () => {
+        if (heroEl.dataset.loaded === 'true') return;
+        // Try to draw whichever frame is needed for current scroll position
+        drawFrame(nextIndex);
+        // If that fails (frame not loaded yet) fall back to frame 0 if available
+        if (currentDrawn < 0) drawFrame(0);
+        if (currentDrawn >= 0) heroEl.dataset.loaded = 'true';
+      };
+
+      for (let i = 0; i < FRAME_COUNT; i++) {
+        const img = new Image();
+        img.decoding = 'async';
+        img.onload = () => {
+          loaded++;
+          if (loaderBar) loaderBar.style.width = (loaded / FRAME_COUNT * 100).toFixed(1) + '%';
+          tryFirstPaint();
+        };
+        img.onerror = () => { loaded++; };
+        img.src = framePath(i);
+        frames[i] = img;
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onResize);
+      onScroll();
+    })();
+
+    // ---------- Anchor / placeholder link guard ----------
+    (() => {
+      // Pulse a button visually when clicked, useful for placeholder CTAs
+      const pulse = (el) => {
+        el.style.transform = 'scale(0.96)';
+        setTimeout(() => { el.style.transform = ''; }, 140);
+      };
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href]');
+        if (!a) return;
+        const href = a.getAttribute('href');
+        // Pure "#" placeholder = prevent the page from jumping to top
+        if (href === '#' || href === '#!' || href === 'javascript:void(0)') {
+          e.preventDefault();
+          pulse(a);
+          return;
+        }
+        // Anchor to a valid target — let browser handle smooth scroll, just
+        // close the mobile drawer if it's open
+        if (href.startsWith('#') && href.length > 1) {
+          const target = document.getElementById(href.slice(1));
+          if (target) {
+            const drawer = document.getElementById('mobile-drawer');
+            if (drawer && drawer.dataset.open === 'true') {
+              drawer.dataset.open = 'false';
+              const burger = document.querySelector('.nav__burger');
+              if (burger) burger.setAttribute('aria-expanded', 'false');
+              document.body.style.overflow = '';
+            }
+          }
+        }
+      });
+    })();
+
+    // ---------- Sliding pill nav cursor ----------
+    (() => {
+      const pill = document.getElementById('nav-pill');
+      const cursor = document.getElementById('nav-pill-cursor');
+      if (!pill || !cursor) return;
+      const items = Array.from(pill.querySelectorAll('.nav-pill__item'));
+      const setActive = (item) => {
+        items.forEach(i => i.classList.toggle('nav-pill__item--active', i === item));
+        const w = item.getBoundingClientRect().width;
+        cursor.style.width = w + 'px';
+        cursor.style.left = item.offsetLeft + 'px';
+        cursor.style.opacity = '1';
+      };
+      const clearActive = () => {
+        items.forEach(i => i.classList.remove('nav-pill__item--active'));
+        cursor.style.opacity = '0';
+      };
+      items.forEach(item => {
+        item.addEventListener('mouseenter', () => setActive(item));
+        item.addEventListener('focusin', () => setActive(item));
+      });
+      pill.addEventListener('mouseleave', clearActive);
+      pill.addEventListener('focusout', (e) => {
+        if (!pill.contains(e.relatedTarget)) clearActive();
+      });
+    })();
+
+    // ---------- Global pointer tracking (for spotlight glow on teasers) ----------
+    (() => {
+      if (reduceMotion) return;
+      const body = document.body;
+      let lastX = 0, lastY = 0, ticking = false;
+      const flush = () => {
+        ticking = false;
+        body.style.setProperty('--x', lastX);
+        body.style.setProperty('--y', lastY);
+        body.style.setProperty('--xp', (lastX / window.innerWidth).toFixed(3));
+        body.style.setProperty('--yp', (lastY / window.innerHeight).toFixed(3));
+      };
+      window.addEventListener('pointermove', (e) => {
+        lastX = e.clientX;
+        lastY = e.clientY;
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(flush);
+        }
+      }, { passive: true });
+    })();
+
+    // ---------- Parallax showcase scroll transforms ----------
+    (() => {
+      const blocks = document.querySelectorAll('.parallax-block');
+      if (!blocks.length || reduceMotion) return;
+      let pTicking = false;
+      const update = () => {
+        pTicking = false;
+        const vh = window.innerHeight;
+        blocks.forEach(block => {
+          const rect = block.getBoundingClientRect();
+          const sticky = block.querySelector('.parallax__sticky');
+          const dark = block.querySelector('.parallax__dark');
+          const overlay = block.querySelector('.parallax__overlay');
+          if (!sticky || !dark || !overlay) return;
+
+          // Image transform — equivalent to framer ["end end", "end start"]:
+          // 0 when block bottom is at viewport bottom, 1 when block bottom is at viewport top
+          const imgT = Math.max(0, Math.min(1, 1 - rect.bottom / vh));
+          const scale = (1 - 0.15 * imgT).toFixed(3);
+          const darkOp = (0.7 + 0.3 * imgT).toFixed(2);
+          sticky.style.transform = `scale(${scale})`;
+          dark.style.opacity = darkOp;
+
+          // Overlay transform — equivalent to framer ["start end", "end start"]:
+          // 0 when block top enters viewport bottom, 1 when block bottom leaves viewport top
+          const fullScroll = vh + rect.height;
+          const t = Math.max(0, Math.min(1, (vh - rect.top) / fullScroll));
+          const y = (250 - 500 * t).toFixed(0);
+          let opacity = 0;
+          if (t > 0.25 && t < 0.75) {
+            opacity = t < 0.5 ? (t - 0.25) / 0.25 : 1 - (t - 0.5) / 0.25;
+          }
+          overlay.style.transform = `translate3d(0, ${y}px, 0)`;
+          overlay.style.opacity = opacity.toFixed(2);
+        });
+      };
+      const onScrollP = () => {
+        if (!pTicking) {
+          pTicking = true;
+          requestAnimationFrame(update);
+        }
+      };
+      window.addEventListener('scroll', onScrollP, { passive: true });
+      window.addEventListener('resize', onScrollP);
+      update();
+    })();
+
+    // ---------- Pixel trail (gooey) on manifesto ----------
+    (() => {
+      const container = document.getElementById('pixel-trail');
+      const section = document.getElementById('manifesto');
+      if (!container || !section) return;
+      if (reduceMotion) return;
+
+      const PIXEL_SIZE = window.matchMedia('(max-width: 768px)').matches ? 22 : 30;
+
+      const buildGrid = () => {
+        const rect = container.getBoundingClientRect();
+        const cols = Math.ceil(rect.width / PIXEL_SIZE);
+        const rows = Math.ceil(rect.height / PIXEL_SIZE);
+        const frag = document.createDocumentFragment();
+        for (let r = 0; r < rows; r++) {
+          const row = document.createElement('div');
+          row.className = 'pixel-trail__row';
+          for (let c = 0; c < cols; c++) {
+            const px = document.createElement('div');
+            px.className = 'pixel';
+            px.style.width = PIXEL_SIZE + 'px';
+            px.style.height = PIXEL_SIZE + 'px';
+            row.appendChild(px);
+          }
+          frag.appendChild(row);
+        }
+        container.replaceChildren(frag);
+        return { cols, rows };
+      };
+
+      let { cols, rows } = buildGrid();
+      let lastIndex = -1;
+
+      const lightPixel = (x, y) => {
+        if (x < 0 || y < 0 || x >= cols || y >= rows) return;
+        const idx = y * cols + x;
+        if (idx === lastIndex) return;
+        lastIndex = idx;
+        const row = container.children[y];
+        if (!row) return;
+        const px = row.children[x];
+        if (!px) return;
+        px.classList.remove('pixel--lit');
+        // restart animation
+        void px.offsetWidth;
+        px.classList.add('pixel--lit');
+      };
+
+      const onMove = (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = Math.floor((e.clientX - rect.left) / PIXEL_SIZE);
+        const y = Math.floor((e.clientY - rect.top) / PIXEL_SIZE);
+        lightPixel(x, y);
+      };
+
+      const onTouch = (e) => {
+        if (!e.touches || !e.touches[0]) return;
+        const t = e.touches[0];
+        const rect = container.getBoundingClientRect();
+        const x = Math.floor((t.clientX - rect.left) / PIXEL_SIZE);
+        const y = Math.floor((t.clientY - rect.top) / PIXEL_SIZE);
+        lightPixel(x, y);
+      };
+
+      section.addEventListener('mousemove', onMove);
+      section.addEventListener('touchmove', onTouch, { passive: true });
+
+      let resizeTo;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTo);
+        resizeTo = setTimeout(() => {
+          ({ cols, rows } = buildGrid());
+          lastIndex = -1;
+        }, 200);
+      });
+    })();
+
+    // ---------- Mobile drawer ----------
+    const burger = document.querySelector('.nav__burger');
+    const drawer = document.getElementById('mobile-drawer');
+    const drawerClose = document.querySelector('.drawer__close');
+    const openDrawer = () => {
+      drawer.dataset.open = 'true';
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      drawerClose.focus();
+    };
+    const closeDrawer = () => {
+      drawer.dataset.open = 'false';
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      burger.focus();
+    };
+    if (burger && drawer) {
+      burger.addEventListener('click', openDrawer);
+      drawerClose.addEventListener('click', closeDrawer);
+      drawer.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
+      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.dataset.open === 'true') closeDrawer();
+      });
+    }
+  </script>
+</body>
+</html>
