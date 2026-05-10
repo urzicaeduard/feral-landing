@@ -10,7 +10,9 @@ const path = require('path');
 
 const INPUT  = path.join(__dirname, 'index.html');
 const OUTPUT = path.join(__dirname, 'feral-embed.html');
-const CDN    = 'https://about-puma-hgzhkqbeg-urzicaeduards-projects.vercel.app';
+// Stable Vercel project URL — does NOT change between deploys.
+// (Per-deploy URLs like *-hgzhkqbeg-* break every time you push.)
+const CDN    = 'https://about-puma.vercel.app';
 
 let html = fs.readFileSync(INPUT, 'utf8');
 
